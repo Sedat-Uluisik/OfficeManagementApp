@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +19,8 @@ import com.sedat.officemanagementapp.databinding.ActivityLoginBinding
 import com.sedat.officemanagementapp.core.model.UserLogin
 import com.sedat.officemanagementapp.utils.Constants
 import com.sedat.officemanagementapp.utils.Constants.package_name
+import com.sedat.officemanagementapp.utils.DeviceUtils.Companion.closeKeyboard
+import com.sedat.officemanagementapp.utils.DeviceUtils.Companion.openKeyboard
 import com.sedat.officemanagementapp.utils.gone
 import com.sedat.officemanagementapp.utils.visible
 import com.sedat.officemanagementapp.viewmodel.LoginViewModel
@@ -44,19 +48,7 @@ class LoginActivity : AppCompatActivity() {
 
         sharedPreferences = this.getSharedPreferences(package_name, Context.MODE_PRIVATE)
 
-        val user = SharedPref(sharedPreferences).getUserNameAndPassword()
-        if(user.username.isNotEmpty() && user.password.isNotEmpty() && user.status != -1){
-            if(user.status == 1 || user.status == 2){
-                val intent = Intent(this, ToDoActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-            else if(user.status == 3){
-                val intent = Intent(this, AdminPanelActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
-        }
+        autoLogin()
 
         binding.loginButton.setOnClickListener {
             binding.progressBarLogin.visible()
@@ -86,6 +78,28 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        binding.userName.requestFocus()
+        openKeyboard(this, binding.userName)
+        binding.root.setOnClickListener {
+            closeKeyboard(this)
+        }
+
+    }
+
+    private fun autoLogin(){
+        val user = SharedPref(sharedPreferences).getUserNameAndPassword()
+        if(user.username.isNotEmpty() && user.password.isNotEmpty() && user.status != -1){
+            if(user.status == 1 || user.status == 2){
+                val intent = Intent(this, ToDoActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else if(user.status == 3){
+                val intent = Intent(this, AdminPanelActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
     }
 
     private fun login(userName: String, password: String){
