@@ -37,21 +37,21 @@ xxx raporlanan işi yapıldı - diye bildirim gönderilir. <br/>
 √ Lottie <br/>
 
 **--- Login Screen ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/login%20screen.JPG) <br/>
-**--- Departments Screen ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/departments%20screen.JPG)
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/departments%20screen%202.JPG)
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/insert%20department.JPG) <br/>
-**--- Add Access To Department ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/insert%20access.JPG) <br/>
-**--- Add Job To Department ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/insert%20work.JPG) <br/>
-**--- Jobs Screen ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/work%20screen.JPG) <br/>
-**--- Add User ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/insert%20user.JPG) <br/>
-**--- Jobs Status ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/admin%20work%20status.JPG) <br/>
-**--- User Screen ---** <br/>
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/user%20screen.JPG)
-![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/main/art/user%20report%20screen.JPG)
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/login%20screen.JPG) <br/>
+**--- Departments Screen (admin) ---** <br/>
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/departments%20screen.JPG)
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/departments%20screen%202.JPG)
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/insert%20department.JPG) <br/>
+**--- Add Access To Department (admin) ---** <br/>
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/insert%20access.JPG) <br/>
+**--- Add Job To Department (admin) ---** <br/>
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/insert%20work.JPG) <br/>
+**--- Jobs Screen (admin) ---** <br/>
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/work%20screen.JPG) <br/>
+**--- Add User (admin) ---** <br/>
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/insert%20user.JPG) <br/>
+**--- Jobs Status (admin) ---** <br/>
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/admin%20work%20status.JPG) <br/>
+**--- User Screen (user) ---** <br/>
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/user%20screen.JPG)
+![Resim](https://github.com/Sedat-Uluisik/OfficeManagementApp/blob/master/art/user%20report%20screen.JPG)
