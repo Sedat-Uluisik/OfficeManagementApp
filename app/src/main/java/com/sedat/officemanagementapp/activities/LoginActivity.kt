@@ -1,13 +1,9 @@
 package com.sedat.officemanagementapp.activities
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -17,7 +13,6 @@ import com.sedat.officemanagementapp.constants.SharedPref
 import com.sedat.officemanagementapp.constants.ShowToast
 import com.sedat.officemanagementapp.databinding.ActivityLoginBinding
 import com.sedat.officemanagementapp.core.model.UserLogin
-import com.sedat.officemanagementapp.utils.Constants
 import com.sedat.officemanagementapp.utils.Constants.package_name
 import com.sedat.officemanagementapp.utils.DeviceUtils.Companion.closeKeyboard
 import com.sedat.officemanagementapp.utils.DeviceUtils.Companion.openKeyboard
@@ -64,26 +59,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        //enter ya da boş bir yere tıklanınca klavyenin kapanması için kullanılıyor.
-        binding.userName.setOnFocusChangeListener { view, bool ->
-            if(!bool){
-                val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(view.windowToken, 0)
-            }
-        }
-        binding.password.setOnFocusChangeListener { view, bool ->
-            if(!bool){
-                val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(view.windowToken, 0)
-            }
-        }
-
         binding.userName.requestFocus()
         openKeyboard(this, binding.userName)
-        binding.root.setOnClickListener {
-            closeKeyboard(this)
-        }
-
+        //listener
+        closeKeyboard(binding.userName)
+        closeKeyboard(binding.password)
     }
 
     private fun autoLogin(){
