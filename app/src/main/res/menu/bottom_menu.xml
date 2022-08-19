@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/departments" android:id="@+id/departmentsFragment" android:icon="@drawable/organization64"/>
+    <item android:title="@string/works" android:id="@+id/worksFragment" android:icon="@drawable/work_64"/>
+    <item android:title="@string/users" android:id="@+id/usersFragment" android:icon="@drawable/users_24"/>
+    <item android:title="@string/work_state" android:id="@+id/toDoFragment" android:icon="@drawable/checklist_24"/>
+</menu>

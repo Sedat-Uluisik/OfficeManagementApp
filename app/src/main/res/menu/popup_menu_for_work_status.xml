@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/report"
+        android:title="@string/report"
+        android:icon="@drawable/megaphone_black_64" />
+    <item
+        android:id="@+id/delete"
+        android:title="@string/delete"
+        android:icon="@drawable/delete_black_64" />
+
+    <item android:id="@+id/done"
+        android:title="@string/done"
+        android:icon="@drawable/done_black_64" />
+</menu>

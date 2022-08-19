@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/alert_dialog_back">
+
+    <EditText
+        android:id="@+id/name_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:hint="name..."
+        android:textColor="@color/c_yellow"
+        android:textColorHint="@color/c_yellow"
+        android:backgroundTint="@color/c_yellow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_insert_or_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:text="---"
+            android:textColor="@color/c_black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/button_back"
+            android:textAllCaps="false"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:text="@string/cancel"
+            android:textStyle="bold"
+            android:textColor="@color/c_black"
+            android:textSize="16sp"
+            android:background="@drawable/button_back"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</LinearLayout>

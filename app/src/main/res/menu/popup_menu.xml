@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/delete"
+        android:title="@string/delete"
+        android:icon="@drawable/delete_64" />
+
+    <item
+        android:id="@+id/update"
+        android:title="@string/update"
+        android:icon="@drawable/update_64"/>
+
+    <item
+        android:id="@+id/insert_access"
+        android:title="@string/access"
+        android:icon="@drawable/access_64"/>
+
+    <item
+        android:id="@+id/insert_work_to_department"
+        android:title="@string/add_work"
+        android:icon="@drawable/work_64_yellow" />
+</menu>

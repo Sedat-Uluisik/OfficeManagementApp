@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "15531716201",
+    "project_id": "officemanagementapp-95f0e",
+    "storage_bucket": "officemanagementapp-95f0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15531716201:android:3c739e50a58b1955bbbcf8",
+        "android_client_info": {
+          "package_name": "com.sedat.officemanagementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15531716201-kcasputglke3f1ubp4s3a81qtl8il5mp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1_jsNBbjTlk9ybyoktlAXPm0eZVlylb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15531716201-kcasputglke3f1ubp4s3a81qtl8il5mp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
