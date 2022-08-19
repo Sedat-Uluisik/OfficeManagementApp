@@ -12,7 +12,6 @@ import javax.inject.Inject
 class Repository @Inject constructor(
     private val api: Api
 ) {
-
     suspend fun getUserWithNameAndPassword(username: String, password: String): Resource<User> {
         return getResourceByNetworkRequest {
             api.getUserWithNameAndPassword(username, password)
