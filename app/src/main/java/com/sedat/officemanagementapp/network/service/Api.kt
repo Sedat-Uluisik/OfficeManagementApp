@@ -13,7 +13,7 @@ interface Api {
     ): Response<User>
 
     @GET("allUsers")
-    suspend fun getAllUsers(): List<User>
+    suspend fun getAllUsers(): Response<List<User>>
 
     @Headers("Content-Type: application/json")
     @POST("insertUser")

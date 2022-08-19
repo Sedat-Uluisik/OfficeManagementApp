@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.sedat.officemanagementapp.constants.ShowToast
 import com.sedat.officemanagementapp.core.model.Work
 import com.sedat.officemanagementapp.repo.Repository
+import com.sedat.officemanagementapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -18,24 +19,28 @@ class WorksViewModel @Inject constructor(
     private val showToast: ShowToast
 ): ViewModel() {
 
+    private var _workList = MutableLiveData<List<Work>>()
+    val workList: LiveData<List<Work>> get()=_workList
+    private var _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get()= _isLoading
+
     init {
         getAllWork()
     }
 
-    private var _workList = MutableLiveData<List<Work>>()
-    val workList: LiveData<List<Work>> get()=_workList
-
     fun getAllWork(){
+        _isLoading.value = true
         viewModelScope.launch {
-            try {
-                val works = repository.getAllWorks()
-
-                if (works.code()== 200)
-                    _workList.value = works.body()
-                else
-                    showToast.show("Tekrar deneyiniz")
-            }catch (ex: Exception){
-                showToast.showErrorConnect()
+            when(val response = repository.getAllWorks()){
+                is Resource.Loading -> _isLoading.value = true
+                is Resource.Error -> {
+                    showToast.show(response.message?.message.toString())
+                    _isLoading.value = false
+                }
+                is Resource.Success -> {
+                    _workList.value = response.data
+                    _isLoading.value = false
+                }
             }
         }
     }

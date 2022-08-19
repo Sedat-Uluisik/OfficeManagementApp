@@ -19,8 +19,8 @@ class Repository @Inject constructor(
         }
     }
 
-    suspend fun getAllWorks() : Response <List<Work>>{
-        return api.getAllWorks()
+    suspend fun getAllWorks() : Resource<List<Work>>{
+        return getResourceByNetworkRequest { api.getAllWorks() }
     }
 
     suspend fun insertWork(work: Work): Response<Work> {
@@ -35,7 +35,9 @@ class Repository @Inject constructor(
         return api.updateWork(work)
     }
 
-    suspend fun getAllUsers(): List<User> = api.getAllUsers()
+    suspend fun getAllUsers(): Resource<List<User>> {
+        return getResourceByNetworkRequest { api.getAllUsers() }
+    }
 
     suspend fun insertUser(user: User): Response<User> {
         return api.insertUser(user)
@@ -53,14 +55,12 @@ class Repository @Inject constructor(
         return api.getAllDepartments()
     }
 
-    suspend fun getAllDepartments2(): Flow<Response<List<Department>>> =
-        flow {
-            api.getAllDepartments2().run {
-                if(this.body() != null){
-                    emit(this)
-                }
-            }
-        }.flowOn(Dispatchers.IO)
+    //for flow
+    suspend fun getAllDepartments2(): Resource<List<Department>>{
+        return getResourceByNetworkRequest {
+            api.getAllDepartments2()
+        }
+    }
 
     suspend fun insertDepartment(department: Department): Response<Department> {
         return api.insertDepartment(department)

@@ -7,7 +7,9 @@ import com.sedat.officemanagementapp.core.model.Department
 import com.sedat.officemanagementapp.core.model.Work
 import com.sedat.officemanagementapp.core.model.WorkId
 import com.sedat.officemanagementapp.repo.Repository
+import com.sedat.officemanagementapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
@@ -22,8 +24,8 @@ class DepartmentViewModel @Inject constructor(
         getAllDepartments()
     }
 
-    private var _departmentList = MutableLiveData<List<Department>>()
-    val departmentList: LiveData<List<Department>> get() = _departmentList
+    //private var _departmentList = MutableLiveData<List<Department>>()
+    //val departmentList: LiveData<List<Department>> get() = _departmentList
 
     /*fun getAllDepartments(){
         viewModelScope.launch {
@@ -39,11 +41,19 @@ class DepartmentViewModel @Inject constructor(
         }
     }*/
 
-    //with flow
+    private val _departmentState = MutableStateFlow(DepartmentsState())
+    val departmentState = _departmentState
     fun getAllDepartments(){
+
         viewModelScope.launch {
-            repository.getAllDepartments2().collect{
-                _departmentList.postValue(it.body())
+            when(val response = repository.getAllDepartments2()){
+                is Resource.Error ->
+                    _departmentState.value =
+                        DepartmentsState(null, response.message?.message, null)
+                is Resource.Loading ->
+                    _departmentState.value = DepartmentsState(true, "", null)
+                is Resource.Success ->
+                    _departmentState.value = DepartmentsState(null, "", response.data)
             }
         }
     }
@@ -84,7 +94,7 @@ class DepartmentViewModel @Inject constructor(
                 val response = repository.updateDepartment(department)
 
                 if(response.body() != null && response.isSuccessful){
-                    _departmentList.value = response.body()
+                    _departmentState.value = DepartmentsState(null, null, response.body())
                 }
             }catch (ex: Exception){
                 showToast.showErrorConnect()
@@ -122,17 +132,18 @@ class DepartmentViewModel @Inject constructor(
     fun getAllWorks(): LiveData<List<Work>>{
         val list = MutableLiveData<List<Work>>()
         viewModelScope.launch {
-            try {
-                val workList = repository.getAllWorks()
-
-                if(workList.isSuccessful && workList.body() != null)
-                    list.value = workList.body()
-                else
-                    showToast.show("Tekrar deneyiniz")
-            }catch (ex: Exception){
-                showToast.showErrorConnect()
+            when(val response = repository.getAllWorks()){
+                is Resource.Loading -> {showToast.show("Tekrar deneyiniz")}
+                is Resource.Error -> {showToast.show(response.message?.message.toString())}
+                is Resource.Success -> list.value = response.data
             }
         }
         return list
     }
 }
+
+data class DepartmentsState(
+    val isLoading: Boolean ?= null,
+    val error: String ?= null,
+    val data: List<Department> ?= null
+)

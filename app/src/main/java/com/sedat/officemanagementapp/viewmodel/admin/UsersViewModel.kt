@@ -8,6 +8,7 @@ import com.sedat.officemanagementapp.constants.ShowToast
 import com.sedat.officemanagementapp.core.model.Department
 import com.sedat.officemanagementapp.core.model.User
 import com.sedat.officemanagementapp.repo.Repository
+import com.sedat.officemanagementapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,15 +26,12 @@ class UsersViewModel @Inject constructor(
     private var _userList = MutableLiveData<List<User>>()
     val workList: LiveData<List<User>> get()=_userList
 
-    fun getAllUsers(){
+    private fun getAllUsers(){
         viewModelScope.launch {
-            try {
-                val users = repository.getAllUsers()
-
-                if(users != null && users.isNotEmpty())
-                    _userList.value = users
-            }catch (ex: Exception){
-                showToast.showErrorConnect()
+            when(val response = repository.getAllUsers()){
+                is Resource.Error -> showToast.show(response.message?.message.toString())
+                is Resource.Loading -> {}
+                is Resource.Success -> _userList.value = response.data
             }
         }
     }

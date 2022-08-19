@@ -69,9 +69,7 @@ class UsersFragment : Fragment(), PopupMenuItemClickListener {
 
     private fun observe(){
         viewModel.workList.observe(viewLifecycleOwner){
-            if(it != null && it.isNotEmpty()){
-                adapter.differ.submitList(it)
-            }
+            adapter.differ.submitList(it)
         }
     }
 

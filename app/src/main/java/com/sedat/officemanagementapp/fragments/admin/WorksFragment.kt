@@ -82,10 +82,14 @@ class WorksFragment : Fragment(), PopupMenuItemClickListener, AlertDialogButtonL
 
     private fun observe(){
         viewModel.workList.observe(viewLifecycleOwner){
-            if(it != null && it.isNotEmpty()){
-                adapter.differ.submitList(it)
+
+            adapter.differ.submitList(it)
+            //binding.swipeRefreshWorks.isRefreshing = false
+
+        }
+        viewModel.isLoading.observe(viewLifecycleOwner){
+            if(!it)
                 binding.swipeRefreshWorks.isRefreshing = false
-            }
         }
     }
 
