@@ -46,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
         autoLogin()
 
         binding.loginButton.setOnClickListener {
-            binding.progressBarLogin.visible()
 
             val username = binding.userName.text.toString()
             val password = binding.password.text.toString()
@@ -55,7 +54,6 @@ class LoginActivity : AppCompatActivity() {
                 login(username, password)
             else{
                 showToast.show("Kullanıcı adı veya şifre boş olamaz!")
-                binding.progressBarLogin.gone()
             }
         }
 
@@ -83,48 +81,44 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(userName: String, password: String){
-        viewModel.getUserWithNameAndPassword(userName, password).observe(this){
-            if(it.code() == 200 && it.body() != null){
-                if(it.body()!!.statusId == 1 || it.body()!!.statusId == 2){
-
-                    SharedPref(sharedPreferences).saveUserNameAndPassword(
-                        UserLogin(
-                            userName,
-                            password,
-                            it.body()!!.statusId,
-                        it.body()!!.departmentId)
-                    )
-
-                    binding.progressBarLogin.gone()
-
-                    if(it.body()!!.statusId == 2)
-                        subscribeToOneSignal("Hizmetli", it.body()!!.departmentId)
-                    else
-                        subscribeToOneSignal("Kullanıcı", it.body()!!.departmentId)
-
-
-                    val intent = Intent(this, ToDoActivity::class.java)
-                    startActivity(intent)
-                    finish()
-
-                }else if(it.body()!!.statusId == 3){
-
-                    SharedPref(sharedPreferences).saveUserNameAndPassword(
-                        UserLogin(userName, password, 3, it.body()!!.departmentId)
-                    )
-
-                    val intent = Intent(this, AdminPanelActivity::class.java)
-                    startActivity(intent)
-                    finish()
-
-                }
-            }else if(it.code() == 404){
-                showToast.show("Kullanıcı bulunamadı")
-                SharedPref(sharedPreferences).deleteUser()
-                binding.progressBarLogin.gone()
-            }
+        viewModel.getUserWithNameAndPassword(userName, password)
+        viewModel.loading.observe(this){
+            if(it)
+                binding.progressBarLogin.visible()
             else
-                showToast.show("Hata!!")
+                binding.progressBarLogin.gone()
+        }
+        viewModel.user.observe(this){
+
+            if(it.statusId == 1 || it.statusId == 2){
+
+                SharedPref(sharedPreferences).saveUserNameAndPassword(
+                    UserLogin(
+                        userName,
+                        password,
+                        it.statusId,
+                        it.departmentId)
+                )
+
+                if(it.statusId == 2)
+                    subscribeToOneSignal("Hizmetli", it.departmentId)
+                else
+                    subscribeToOneSignal("Kullanıcı", it.departmentId)
+
+                val intent = Intent(this, ToDoActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            }else if(it.statusId == 3){
+
+                SharedPref(sharedPreferences).saveUserNameAndPassword(
+                    UserLogin(userName, password, 3, it.departmentId)
+                )
+
+                val intent = Intent(this, AdminPanelActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 

@@ -106,13 +106,9 @@ class ToDoFragment : Fragment(), PopupMenuItemClickListener {
                         user.departmentId == worksAndStatus.idDepartment
                     }
                     name?.let {
-                        if(name.departmentName != null)
-                            if (name.departmentName.isNotEmpty()){
-                                binding.departmentNameText.visible()
-                                binding.departmentNameText.text = name.departmentName
-                            }else
-                                binding.departmentNameText.gone()
-                    }
+                        binding.departmentNameText.visible()
+                        binding.departmentNameText.text = name.departmentName
+                    } ?: binding.departmentNameText.gone()
 
                 }
 

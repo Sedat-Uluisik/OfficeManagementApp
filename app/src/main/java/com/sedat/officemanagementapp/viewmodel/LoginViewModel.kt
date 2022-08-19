@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.sedat.officemanagementapp.constants.ShowToast
 import com.sedat.officemanagementapp.core.model.User
 import com.sedat.officemanagementapp.repo.Repository
+import com.sedat.officemanagementapp.utils.Resource
+import com.sedat.officemanagementapp.utils.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -18,17 +20,25 @@ class LoginViewModel @Inject constructor(
     private val showToast: ShowToast
 ): ViewModel() {
 
-    fun getUserWithNameAndPassword(username: String, password: String): LiveData<Response<User>>{
-        val status = MutableLiveData<Response<User>>()
-        viewModelScope.launch {
-            try {
-                val user = repository.getUserWithNameAndPassword(username, password)
+    private var _user = MutableLiveData<User>()
+    val user: LiveData<User> get() = _user
+    private var _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean> get() = _loading
 
-                status.value = user
-            }catch (ex: Exception){
-                showToast.show("Bağlantı hatası")
+    fun getUserWithNameAndPassword(username: String, password: String){
+        _loading.value = true
+        viewModelScope.launch {
+            when(val response = repository.getUserWithNameAndPassword(username, password)){
+                is Resource.Error -> {
+                    showToast.show(response.message?.message.toString())
+                    _loading.value = false
+                }
+                is Resource.Loading -> _loading.value = true
+                is Resource.Success -> {
+                    _user.value = response.data
+                    _loading.value = false
+                }
             }
         }
-        return status
     }
 }

@@ -2,6 +2,8 @@ package com.sedat.officemanagementapp.repo
 
 import com.sedat.officemanagementapp.core.model.*
 import com.sedat.officemanagementapp.network.service.Api
+import com.sedat.officemanagementapp.utils.Resource
+import com.sedat.officemanagementapp.utils.getResourceByNetworkRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
@@ -11,8 +13,10 @@ class Repository @Inject constructor(
     private val api: Api
 ) {
 
-    suspend fun getUserWithNameAndPassword(username: String, password: String): Response<User> {
-        return api.getUserWithNameAndPassword(username, password)
+    suspend fun getUserWithNameAndPassword(username: String, password: String): Resource<User> {
+        return getResourceByNetworkRequest {
+            api.getUserWithNameAndPassword(username, password)
+        }
     }
 
     suspend fun getAllWorks() : Response <List<Work>>{

@@ -57,9 +57,11 @@ class ToDoActivity : AppCompatActivity(), PopupMenuItemClickListener {
     }
 
     override fun logOutBtnClick() {
-        SharedPref(sharedPreferences).saveUserNameAndPassword(
+        /*SharedPref(sharedPreferences).saveUserNameAndPassword(
             UserLogin(" ", " ", -1, -1)
-        )
+        )*/
+
+        SharedPref(sharedPreferences).deleteUser()
 
         unsubscribeOneSignal()
 
