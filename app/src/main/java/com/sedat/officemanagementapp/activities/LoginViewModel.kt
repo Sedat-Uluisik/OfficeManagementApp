@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.viewmodel
+package com.sedat.officemanagementapp.activities
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,10 +8,8 @@ import com.sedat.officemanagementapp.constants.ShowToast
 import com.sedat.officemanagementapp.core.model.User
 import com.sedat.officemanagementapp.repo.Repository
 import com.sedat.officemanagementapp.utils.Resource
-import com.sedat.officemanagementapp.utils.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel

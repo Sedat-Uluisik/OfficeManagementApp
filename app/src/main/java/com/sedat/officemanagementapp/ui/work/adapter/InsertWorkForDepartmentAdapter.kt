@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.adapter.admin
+package com.sedat.officemanagementapp.ui.work.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sedat.officemanagementapp.adapter.admin.viewholder.InsertWorkForDepartmentViewHolder
+import com.sedat.officemanagementapp.ui.work.adapter.InsertWorkForDepartmentViewHolder
 import com.sedat.officemanagementapp.databinding.ItemLayoutBottomSheetBinding
 import com.sedat.officemanagementapp.core.model.Work
 import com.sedat.officemanagementapp.core.model.WorkId

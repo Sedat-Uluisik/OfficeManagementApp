@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/toDoFragment2"
-        android:name="com.sedat.officemanagementapp.fragments.admin.ToDoFragment"
+        android:name="com.sedat.officemanagementapp.ui.todo.ToDoFragment"
         android:label="fragment_to_do"
         tools:layout="@layout/fragment_to_do" />
 </navigation>

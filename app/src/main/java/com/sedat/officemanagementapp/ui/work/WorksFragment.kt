@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.fragments.admin
+package com.sedat.officemanagementapp.ui.work
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.sedat.officemanagementapp.adapter.admin.WorksAdapter
+import com.sedat.officemanagementapp.ui.work.adapter.WorksAdapter
 import com.sedat.officemanagementapp.constants.CustomAlertDialog
 import com.sedat.officemanagementapp.constants.PopupMenu
 import com.sedat.officemanagementapp.constants.ShowToast
@@ -17,7 +17,6 @@ import com.sedat.officemanagementapp.core.model.Department
 import com.sedat.officemanagementapp.core.model.User
 import com.sedat.officemanagementapp.core.model.Work
 import com.sedat.officemanagementapp.core.model.WorksAndStatus
-import com.sedat.officemanagementapp.viewmodel.admin.WorksViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

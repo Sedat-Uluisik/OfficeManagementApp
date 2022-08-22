@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.adapter.admin
+package com.sedat.officemanagementapp.ui.department.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sedat.officemanagementapp.adapter.admin.viewholder.DepartmentViewHolder
 import com.sedat.officemanagementapp.databinding.DepartmentItemLayoutBinding
 import com.sedat.officemanagementapp.core.model.Department
 import javax.inject.Inject

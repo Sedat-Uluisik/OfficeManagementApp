@@ -6,23 +6,23 @@
     app:startDestination="@id/departmentsFragment">
     <fragment
         android:id="@+id/departmentsFragment"
-        android:name="com.sedat.officemanagementapp.fragments.admin.DepartmentsFragment"
+        android:name="com.sedat.officemanagementapp.ui.department.DepartmentsFragment"
         android:label="fragment_departments"
         tools:layout="@layout/fragment_departments" />
     <fragment
         android:id="@+id/toDoFragment"
-        android:name="com.sedat.officemanagementapp.fragments.admin.ToDoFragment"
+        android:name="com.sedat.officemanagementapp.ui.todo.ToDoFragment"
         android:label="fragment_to_do"
         tools:layout="@layout/fragment_to_do" />
     <fragment
         android:id="@+id/usersFragment"
-        android:name="com.sedat.officemanagementapp.fragments.admin.UsersFragment"
+        android:name="com.sedat.officemanagementapp.ui.user.UsersFragment"
         android:label="fragment_users"
         tools:layout="@layout/fragment_users" >
     </fragment>
     <fragment
         android:id="@+id/worksFragment"
-        android:name="com.sedat.officemanagementapp.fragments.admin.WorksFragment"
+        android:name="com.sedat.officemanagementapp.ui.work.WorksFragment"
         android:label="fragment_works"
         tools:layout="@layout/fragment_works" />
 </navigation>

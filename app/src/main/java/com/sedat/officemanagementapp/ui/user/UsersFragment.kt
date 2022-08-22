@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.fragments.admin
+package com.sedat.officemanagementapp.ui.user
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,7 +11,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.sedat.officemanagementapp.R
-import com.sedat.officemanagementapp.adapter.admin.UsersAdapter
+import com.sedat.officemanagementapp.ui.user.adapter.UsersAdapter
 import com.sedat.officemanagementapp.constants.PopupMenu
 import com.sedat.officemanagementapp.databinding.BottomSheetDialogCustomBinding
 import com.sedat.officemanagementapp.databinding.FragmentUsersBinding
@@ -20,7 +20,6 @@ import com.sedat.officemanagementapp.core.model.Department
 import com.sedat.officemanagementapp.core.model.User
 import com.sedat.officemanagementapp.core.model.Work
 import com.sedat.officemanagementapp.core.model.WorksAndStatus
-import com.sedat.officemanagementapp.viewmodel.admin.UsersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

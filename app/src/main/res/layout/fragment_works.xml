@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.admin.WorksFragment"
+    tools:context=".ui.work.WorksFragment"
     android:background="@color/c_white">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.fragments.admin
+package com.sedat.officemanagementapp.ui.todo
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,17 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import com.sedat.officemanagementapp.adapter.admin.WorkStatusAdapter
+import com.sedat.officemanagementapp.ui.todo.adapter.WorkStatusAdapter
 import com.sedat.officemanagementapp.constants.PopupMenu
 import com.sedat.officemanagementapp.constants.SharedPref
 import com.sedat.officemanagementapp.core.model.*
 import com.sedat.officemanagementapp.databinding.FragmentToDoBinding
 import com.sedat.officemanagementapp.listener.PopupMenuItemClickListener
-import com.sedat.officemanagementapp.utils.Constants
 import com.sedat.officemanagementapp.utils.Constants.package_name
 import com.sedat.officemanagementapp.utils.gone
 import com.sedat.officemanagementapp.utils.visible
-import com.sedat.officemanagementapp.viewmodel.admin.WorksStatesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

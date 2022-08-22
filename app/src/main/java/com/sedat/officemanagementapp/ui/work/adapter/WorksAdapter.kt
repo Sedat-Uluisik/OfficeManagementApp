@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.adapter.admin
+package com.sedat.officemanagementapp.ui.work.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sedat.officemanagementapp.adapter.admin.viewholder.WorksViewHolder
 import com.sedat.officemanagementapp.databinding.ItemLayoutWorkBinding
 import com.sedat.officemanagementapp.core.model.Work
 import javax.inject.Inject

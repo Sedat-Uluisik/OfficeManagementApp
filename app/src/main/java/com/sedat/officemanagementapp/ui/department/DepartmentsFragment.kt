@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.fragments.admin
+package com.sedat.officemanagementapp.ui.department
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,28 +9,27 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.sedat.officemanagementapp.R
-import com.sedat.officemanagementapp.adapter.admin.DepartmentAccessAdapter
-import com.sedat.officemanagementapp.adapter.admin.DepartmentAdapter
-import com.sedat.officemanagementapp.adapter.admin.InsertWorkForDepartmentAdapter
+import com.sedat.officemanagementapp.ui.department.adapter.DepartmentAccessAdapter
+import com.sedat.officemanagementapp.ui.work.adapter.InsertWorkForDepartmentAdapter
 import com.sedat.officemanagementapp.constants.CustomAlertDialog
 import com.sedat.officemanagementapp.constants.ShowToast
-import com.sedat.officemanagementapp.databinding.BottomSheetDialogDepartmentAccessBinding
-import com.sedat.officemanagementapp.databinding.FragmentDepartmentsBinding
 import com.sedat.officemanagementapp.listener.AlertDialogButtonListener
 import com.sedat.officemanagementapp.listener.PopupMenuItemClickListener
 import com.sedat.officemanagementapp.core.model.Department
 import com.sedat.officemanagementapp.core.model.User
 import com.sedat.officemanagementapp.core.model.Work
 import com.sedat.officemanagementapp.core.model.WorksAndStatus
+import com.sedat.officemanagementapp.databinding.BottomSheetDialogDepartmentAccessBinding
+import com.sedat.officemanagementapp.databinding.FragmentDepartmentsBinding
+import com.sedat.officemanagementapp.ui.department.adapter.DepartmentAdapter
 import com.sedat.officemanagementapp.viewmodel.admin.DepartmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class DepartmentsFragment : Fragment(), PopupMenuItemClickListener, AlertDialogButtonListener {
 
-    private var _binding: FragmentDepartmentsBinding?= null
+    private var _binding: com.sedat.officemanagementapp.databinding.FragmentDepartmentsBinding?= null
     private val binding get() = _binding!!
 
     @Inject

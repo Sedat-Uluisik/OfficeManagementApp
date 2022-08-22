@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.adapter.admin.viewholder
+package com.sedat.officemanagementapp.ui.work.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

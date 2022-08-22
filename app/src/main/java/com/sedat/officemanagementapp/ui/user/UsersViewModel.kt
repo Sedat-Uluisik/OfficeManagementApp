@@ -1,4 +1,4 @@
-package com.sedat.officemanagementapp.viewmodel.admin
+package com.sedat.officemanagementapp.ui.user
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

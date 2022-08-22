@@ -1,20 +1,19 @@
-package com.sedat.officemanagementapp.adapter.admin.viewholder
+package com.sedat.officemanagementapp.ui.work.adapter
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import com.sedat.officemanagementapp.databinding.ItemLayoutBottomSheetBinding
-import com.sedat.officemanagementapp.core.model.Department
+import com.sedat.officemanagementapp.core.model.Work
 
-class DepartmentAccessViewHolder(
+class InsertWorkForDepartmentViewHolder(
     var binding: ItemLayoutBottomSheetBinding
 ): RecyclerView.ViewHolder(binding.root) {
     @SuppressLint("ResourceAsColor")
     fun bind(
-        department: Department
-        //click: ((Int) -> Unit) = {}
+        work: Work
     ){
         binding.apply {
-            nameText.text = department.name
+            nameText.text = work.workName
         }
     }
 }

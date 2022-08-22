@@ -18,7 +18,6 @@ import com.sedat.officemanagementapp.utils.DeviceUtils.Companion.closeKeyboard
 import com.sedat.officemanagementapp.utils.DeviceUtils.Companion.openKeyboard
 import com.sedat.officemanagementapp.utils.gone
 import com.sedat.officemanagementapp.utils.visible
-import com.sedat.officemanagementapp.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
